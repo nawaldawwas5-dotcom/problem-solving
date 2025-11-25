@@ -1,0 +1,65 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int add(int a, int b) { return a + b; }
+int subtract(int a, int b) { return a - b; }
+int multiply(int a, int b) { return a * b; }
+double divide(double a, double b) { return b != 0 ? a / b : 0; }
+int square(int n) { return n * n; }
+int cube(int n) { return n * n * n; }
+int factorial(int n) {
+    int f = 1;
+    for (int i = 1; i <= n; i++) f *= i;
+    return f;
+}
+bool isEven(int n) { return n % 2 == 0; }
+bool isPrime(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i <= sqrt(n); i++)
+        if (n % i == 0) return false;
+    return true;
+}
+int gcd(int a, int b) {
+    while (b != 0) {
+        int t = b;
+        b = a % b;
+        a = t;
+    }
+    return a;
+}
+int lcm(int a, int b) { return (a * b) / gcd(a, b); }
+double average(double a, double b) { return (a + b) / 2.0; }
+int maxNum(int a, int b) { return (a > b) ? a : b; }
+int minNum(int a, int b) { return (a < b) ? a : b; }
+int sumToN(int n) { return n * (n + 1) / 2; }
+double areaCircle(double r) { return M_PI * r * r; }
+double areaTriangle(double b, double h) { return 0.5 * b * h; }
+double simpleInterest(double p, double r, double t) { return (p * r * t) / 100.0; }
+double power(double a, double b) { return pow(a, b); }
+int modulus(int a, int b) { return a % b; }
+
+int main() {
+    cout << "Addition: " << add(5, 3) << endl;
+    cout << "Subtraction: " << subtract(5, 3) << endl;
+    cout << "Multiplication: " << multiply(5, 3) << endl;
+    cout << "Division: " << divide(10, 2) << endl;
+    cout << "Square: " << square(4) << endl;
+    cout << "Cube: " << cube(3) << endl;
+    cout << "Factorial: " << factorial(5) << endl;
+    cout << "IsEven(4): " << (isEven(4) ? "true" : "false") << endl;
+    cout << "IsPrime(7): " << (isPrime(7) ? "true" : "false") << endl;
+    cout << "GCD(12, 18): " << gcd(12, 18) << endl;
+    cout << "LCM(12, 18): " << lcm(12, 18) << endl;
+    cout << "Average(10, 20): " << average(10, 20) << endl;
+    cout << "Max(10, 20): " << maxNum(10, 20) << endl;
+    cout << "Min(10, 20): " << minNum(10, 20) << endl;
+    cout << "SumToN(10): " << sumToN(10) << endl;
+    cout << "AreaCircle(5): " << areaCircle(5) << endl;
+    cout << "AreaTriangle(10, 5): " << areaTriangle(10, 5) << endl;
+    cout << "SimpleInterest(1000, 5, 2): " << simpleInterest(1000, 5, 2) << endl;
+    cout << "Power(2, 3): " << power(2, 3) << endl;
+    cout << "Modulus(10, 3): " << modulus(10, 3) << endl;
+
+    return 0;
+}
